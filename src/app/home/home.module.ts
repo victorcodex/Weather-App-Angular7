@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
-import {SearchComponent} from "./search.component";
+import {HomeComponent} from "./home.component";
 
 const routes: Routes = [
-    { path: '', component: SearchComponent }
+    { path: '', component: HomeComponent }
 ];
 
 
@@ -13,6 +13,6 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes)
     ],
-    declarations: [SearchComponent]
+    declarations: [HomeComponent]
 })
-export class SearchModule { }
+export class HomeComponentModule { }

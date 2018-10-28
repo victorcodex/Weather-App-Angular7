@@ -15,4 +15,4 @@ const routes: Routes = [
     ],
     declarations: [WeatherComponent]
 })
-export class WeatherComponentModule { }
+export class WeatherModule { }
