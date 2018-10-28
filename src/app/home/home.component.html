@@ -1,3 +1,101 @@
-<p>
-  home works!
-</p>
+
+<span *ngIf="weatherData">
+  <weather [weatherDataObject]="weatherData"></weather>
+</span>
+
+<main class="container">
+  <div class="card-wrapper">
+    <section class="card anim-flip">
+      <header>
+        <h1 class="card-header">Istanbul</h1>
+      </header>
+      <p class="card-temp box-highlight">30</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+        </div>
+      </div>
+      <p class="card-info">Tempo estável com algumas núvens</p>
+    </section>
+    <section class="card anim-flip anim-flip-card-2">
+      <header>
+        <h1 class="card-header">Berlin</h1>
+      </header>
+      <p class="card-temp box-highlight">28</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <div class="sun-group">
+            <span class="icon-cloud sun"></span>
+            <span class="icon-cloud sunshine"></span>
+          </div>
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+        </div>
+      </div>
+      <p class="card-info">Tempo estável, parcialmente nublado</p>
+    </section>
+    <section class="card anim-flip anim-flip-card-3">
+      <header>
+        <h1 class="card-header">London</h1>
+      </header>
+      <p class="card-temp box-highlight">24</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+          <div class="rain-group">
+            <span class="icon-cloud rain"></span>
+          </div>
+        </div>
+      </div>
+      <p class="card-info">Pancadas de chuvas durante todo o dia</p>
+    </section>
+    <section class="card anim-flip anim-flip-card-4">
+      <header>
+        <h1 class="card-header">Helsinki</h1>
+      </header>
+      <p class="card-temp box-highlight">26</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <div class="sun-group">
+            <span class="icon-cloud sun"></span>
+            <span class="icon-cloud sunshine"></span>
+          </div>
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+        </div>
+      </div>
+      <p class="card-info">Tempo estável, parcialmente nublado</p>
+    </section>
+    <section class="card anim-flip anim-flip-card-5">
+      <header>
+        <h1 class="card-header">Dublin</h1>
+      </header>
+      <p class="card-temp box-highlight">29</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+        </div>
+      </div>
+      <p class="card-info">Tempo estável com algumas núvens</p>
+    </section>
+    <section class="card anim-flip anim-flip-card-6">
+      <header>
+        <h1 class="card-header">Vancouver</h1>
+      </header>
+      <p class="card-temp box-highlight">20</p>
+      <div class="icon">
+        <div class="cloud-group">
+          <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+          <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+          <div class="rain-group">
+            <span class="icon-cloud rain"></span>
+          </div>
+        </div>
+      </div>
+      <p class="card-info">Fortes chuvas durante todo o dia</p>
+    </section>
+  </div>
+</main>
