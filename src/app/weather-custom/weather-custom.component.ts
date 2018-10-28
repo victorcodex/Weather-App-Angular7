@@ -7,9 +7,20 @@ import {Component, Input} from '@angular/core';
 })
 export class WeatherCustomComponent {
 
-    @Input() weatherDataObject: any;
-    @Input() lastName: any;
+    @Input() weatherDataObject = [
+        {
+            city: '',
+            the_temp: '',
+            min_temp: '',
+            max_temp: '',
+            weather_state_abbr: ''
+        }
+    ];
 
-  constructor() { }
+    constructor() {
+
+      // this.weatherDataObject.city
+
+    }
 
 }

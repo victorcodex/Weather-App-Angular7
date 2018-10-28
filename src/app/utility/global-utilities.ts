@@ -14,4 +14,13 @@ export class GlobalUtilities {
         }
     }
 
+    public getTodayDate() {
+        let dateObj = new Date(),
+            month = dateObj.getUTCMonth() + 1,
+            day = dateObj.getUTCDate(),
+            year = dateObj.getUTCFullYear(),
+            newdate = year + "-" + month + "-" + day;
+        return newdate;
+    }
+
 }

@@ -1,3 +1,30 @@
-<p *ngFor="let weather of weatherDataObject">
-    {{weather.latt_long}} | {{weather.title}}
-</p>
+<!--<p *ngFor="let weather of weatherDataObject">-->
+    <!--{{weather.city}} |-->
+    <!--{{weather.the_temp}} |-->
+    <!--{{weather.min_temp}} |-->
+    <!--{{weather.max_temp}} |-->
+    <!--{{weather.weather_state_abbr}}-->
+<!--</p>-->
+<main class="container">
+    <div class="card-wrapper">
+
+        <section class="card anim-flip" *ngFor="let weather of weatherDataObject">
+            <header>
+                <h1 class="card-header">{{weather.city}}</h1>
+            </header>
+            <p class="card-temp box-highlight">{{weather.the_temp}}</p>
+            <div class="icon">
+                <div class="cloud-group">
+                    <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
+                    <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
+                </div>
+            </div>
+            <p class="card-info">
+                Min T: {{weather.min_temp}}
+            </p>
+            <p class="card-info">
+                Max T: {{weather.max_temp}}
+            </p>
+        </section>
+    </div>
+</main>
