@@ -1,3 +1,21 @@
+
+<form [formGroup]="form" (ngSubmit)="onFormSubmit()">
+<div class="wrap">
+  <div class="search">
+    <input
+       type="text"
+       class="searchTerm"
+       placeholder="Keyword: e.g Vancouver"
+       formControlName="searchKeyTerm"
+    >
+    <button type="submit" class="searchButton" [disabled]="form.invalid">
+      <i ></i>
+      <img src="../../assets/weather-icons/search-icon.png" class="search-icon" alt="search-icon">
+    </button>
+  </div>
+</div>
+</form>
+
 <span *ngIf="weatherData">
   <weather [weatherDataObject]="weatherData" [redirect_user]="true"></weather>
 </span>

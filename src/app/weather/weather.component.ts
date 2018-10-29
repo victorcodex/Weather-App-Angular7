@@ -31,36 +31,44 @@ export class WeatherComponent implements OnInit {
 
     weatherLocation(command, woeid) {
         this.globalUtilities.hideShowLoader(true); // hide/show loader
-        this.weatherService.weatherLocation(command, woeid).subscribe(data => {
+        this.weatherService.weatherLocation(command, woeid).subscribe((data: any) => {
 
-                let consolidated_weather = data.consolidated_weather;
-                let todayDate = this.globalUtilities.getTodayDate();
+                let consolidated_weather = data['consolidated_weather'];
 
-                for(let i = 0; i < consolidated_weather.length; i++) {
-                    // if(consolidated_weather[i].applicable_date === todayDate) {
+                if(consolidated_weather) {
+                    let todayDate = this.globalUtilities.getTodayDate();
+
+                    for(let i = 0; i < consolidated_weather.length; i++) {
+                        // if(consolidated_weather[i].applicable_date === todayDate) {
                         this.tempWeatherData.push(
                             {
-                                woeid: data.woeid,
-                                city: data.title,
-                                country: data.parent['title'],
-                                weather_state_abbr: consolidated_weather[i].weather_state_abbr,
-                                min_temp: Math.round(consolidated_weather[i].min_temp * 10) / 10,
-                                max_temp: Math.round(consolidated_weather[i].max_temp * 10) / 10,
-                                the_temp: Math.round(consolidated_weather[i].the_temp * 10) / 10,
+                                woeid: data['woeid'],
+                                city: data['title'],
+                                country: data['parent']['title'],
+                                weather_state_abbr: consolidated_weather[i]['weather_state_abbr'],
+                                min_temp: Math.round(consolidated_weather[i]['min_temp'] * 10) / 10,
+                                max_temp: Math.round(consolidated_weather[i]['max_temp'] * 10) / 10,
+                                the_temp: Math.round(consolidated_weather[i]['the_temp'] * 10) / 10,
                                 redirect_user: false,
-                                wind_speed: Math.round(consolidated_weather[i].wind_speed * 10) / 10,
-                                wind_direction: Math.round(consolidated_weather[i].wind_direction * 10) / 10,
-                                air_pressure: Math.round(consolidated_weather[i].air_pressure * 10) / 10,
-                                humidity: consolidated_weather[i].humidity,
+                                wind_speed: Math.round(consolidated_weather[i]['wind_speed'] * 10) / 10,
+                                wind_direction: Math.round(consolidated_weather[i]['wind_direction'] * 10) / 10,
+                                air_pressure: Math.round(consolidated_weather[i]['air_pressure'] * 10) / 10,
+                                humidity: consolidated_weather[i]['humidity'],
                                 dayOfTheWeek: this.globalUtilities.getDateDay(consolidated_weather[i].applicable_date)
                             }
                         );
                         this.weatherData = this.tempWeatherData;
                         this.globalUtilities.hideShowLoader(false); // hide/show loader
-                    // }
+                        // }
+                    }
+
                 }
+
             },
-            err => console.error(err),
+            (err) => {
+                this.globalUtilities.hideShowLoader(false); // hide/show loader
+                console.error(err)
+            },
             () => {}
         );
 

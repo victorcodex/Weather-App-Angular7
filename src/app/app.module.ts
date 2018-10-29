@@ -6,15 +6,18 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from "@angular/common/http";
 import {GlobalUtilities} from "./utility/global-utilities";
 import {WeatherService} from "./services/weather.service";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [GlobalUtilities, WeatherService],
   bootstrap: [AppComponent]
