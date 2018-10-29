@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 
   public weatherData:any;
   public tempWeatherData = [];
-  completedServerRequest = false;
   public lastCityObject = false;
 
   public citys = [
@@ -46,17 +45,16 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
       this.globalUtilities.hideShowLoader(true); // hide/show loader
 
-
       this.citys.forEach((city, index, array) => {
           if (index === array.length - 1) { // last city object
               this.lastCityObject = true;
           }
-          this.weatherLocation('location',city.woeid, city.city, this.lastCityObject);
+          this.weatherLocation('location', city.woeid, this.lastCityObject);
       });
 
   }
 
-    weatherLocation(command, woeid, city, lastItem) {
+    weatherLocation(command, woeid, lastItem) {
         this.globalUtilities.hideShowLoader(true); // hide/show loader
         this.weatherService.weatherLocation(command, woeid).subscribe(data => {
 
@@ -65,8 +63,16 @@ export class HomeComponent implements OnInit {
 
             for(let i = 0; i < consolidated_weather.length; i++) {
                     if(consolidated_weather[i].applicable_date === todayDate) {
-                        consolidated_weather[i].city = city;
-                        this.tempWeatherData.push(consolidated_weather[i]);
+                        this.tempWeatherData.push(
+                            {
+                                woeid: data.woeid,
+                                city: data.title,
+                                weather_state_abbr: consolidated_weather[i].weather_state_abbr,
+                                min_temp: Math.round(consolidated_weather[i].min_temp * 10) / 10,
+                                max_temp: Math.round(consolidated_weather[i].max_temp * 10) / 10,
+                                the_temp: Math.round(consolidated_weather[i].the_temp * 10) / 10,
+                            }
+                        );
                         if(lastItem) {
                             this.weatherData = this.tempWeatherData;
                         }

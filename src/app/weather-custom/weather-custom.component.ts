@@ -13,7 +13,8 @@ export class WeatherCustomComponent {
             the_temp: '',
             min_temp: '',
             max_temp: '',
-            weather_state_abbr: ''
+            weather_state_abbr: '',
+            woeid: ''
         }
     ];
 

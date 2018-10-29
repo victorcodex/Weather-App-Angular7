@@ -1,29 +1,37 @@
-<!--<p *ngFor="let weather of weatherDataObject">-->
-    <!--{{weather.city}} |-->
-    <!--{{weather.the_temp}} |-->
-    <!--{{weather.min_temp}} |-->
-    <!--{{weather.max_temp}} |-->
-    <!--{{weather.weather_state_abbr}}-->
-<!--</p>-->
 <main class="container">
     <div class="card-wrapper">
 
-        <section class="card anim-flip" *ngFor="let weather of weatherDataObject">
+        <section class="card anim-flip" *ngFor="let weather of weatherDataObject"  [routerLink]="['/weather',weather.woeid]">
             <header>
-                <h1 class="card-header">{{weather.city}}</h1>
+                <h1 class="card-header">
+                    <h4 class="card-header-dayOfTheWeek">{{weather.dayOfTheWeek}}</h4>
+                    {{weather.city}}
+                    <span class="card-header-country" *ngIf="weather.country">
+                        {{weather.country}}
+                    </span>
+                </h1>
             </header>
             <p class="card-temp box-highlight">{{weather.the_temp}}</p>
             <div class="icon">
-                <div class="cloud-group">
-                    <span class="icon-cloud cloud-circle shadow-cloud-clip"></span>
-                    <span class="icon-cloud cloud-base shadow-cloud-clip"></span>
-                </div>
+                <img src="../../assets/weather-icons/{{weather.weather_state_abbr}}.svg" alt="{{weather.weather_state_abbr}}">
             </div>
-            <p class="card-info">
+            <p class="card-info" *ngIf="weather.min_temp">
                 Min T: {{weather.min_temp}}
             </p>
-            <p class="card-info">
+            <p class="card-info" *ngIf="weather.min_temp">
                 Max T: {{weather.max_temp}}
+            </p>
+            <p class="card-info" *ngIf="weather.wind_speed">
+                Wind Speed: {{weather.wind_speed}}
+            </p>
+            <p class="card-info" *ngIf="weather.wind_direction">
+                Wind Direction: {{weather.wind_direction}}
+            </p>
+            <p class="card-info" *ngIf="weather.air_pressure">
+                Air Pressure: {{weather.air_pressure}}
+            </p>
+            <p class="card-info" *ngIf="weather.humidity">
+                Humidity: {{weather.humidity}}
             </p>
         </section>
     </div>

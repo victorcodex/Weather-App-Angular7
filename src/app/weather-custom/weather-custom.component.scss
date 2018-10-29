@@ -1,3 +1,12 @@
+.card-header-dayOfTheWeek {
+  color: #ffffff;
+}
+
+.card-header-country {
+  font-size: 17px;
+  color: #dcdcdc;
+}
+
 @charset "UTF-8";
 
 html,
@@ -58,6 +67,7 @@ body{
 .card:hover{
   box-shadow: 0 0 20px 10px rgb(5,15,25);
   z-index: 2;
+  cursor: pointer;
 }
 .card:hover:not(span){
   color: #efff00;
