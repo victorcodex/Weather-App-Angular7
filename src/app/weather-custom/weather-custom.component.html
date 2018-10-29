@@ -1,7 +1,10 @@
 <main class="container">
     <div class="card-wrapper">
 
-        <section class="card anim-flip" *ngFor="let weather of weatherDataObject"  [routerLink]="['/weather',weather.woeid]">
+        <section class="card  anim-flip"
+                 *ngFor="let weather of weatherDataObject"
+                 [ngClass]="{card_redirect: redirect_user}"
+                 [routerLink]="redirect_user ? [weather_url,weather.woeid] : []">
             <header>
                 <h1 class="card-header">
                     <h4 class="card-header-dayOfTheWeek">{{weather.dayOfTheWeek}}</h4>
@@ -34,5 +37,6 @@
                 Humidity: {{weather.humidity}}
             </p>
         </section>
+
     </div>
 </main>

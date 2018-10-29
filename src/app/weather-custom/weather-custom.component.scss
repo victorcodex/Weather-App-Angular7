@@ -64,10 +64,14 @@ body{
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
+
+.card_redirect:hover{
+  cursor: pointer;
+}
+
 .card:hover{
   box-shadow: 0 0 20px 10px rgb(5,15,25);
   z-index: 2;
-  cursor: pointer;
 }
 .card:hover:not(span){
   color: #efff00;

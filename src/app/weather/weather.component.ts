@@ -20,18 +20,11 @@ export class WeatherComponent implements OnInit {
 
       this.activatedRoute.queryParams.subscribe(params => {
           this.woeid = this.activatedRoute.snapshot.paramMap.get('woeid');
-          console.log(this.woeid);
       });
 
   }
 
-
-
   ngOnInit() {
-
-      // this.globalUtilities.getDateDay('2018-10-29');
-      console.log('weekdayName globalUtilities ', this.globalUtilities.getDateDay('2018-10-29'));
-
       this.globalUtilities.hideShowLoader(true); // hide/show loader
       this.weatherLocation('location', this.woeid);
   }
@@ -54,15 +47,15 @@ export class WeatherComponent implements OnInit {
                                 min_temp: Math.round(consolidated_weather[i].min_temp * 10) / 10,
                                 max_temp: Math.round(consolidated_weather[i].max_temp * 10) / 10,
                                 the_temp: Math.round(consolidated_weather[i].the_temp * 10) / 10,
-                                wind_speed: consolidated_weather[i].wind_speed,
-                                wind_direction: consolidated_weather[i].wind_direction,
-                                air_pressure: consolidated_weather[i].air_pressure,
+                                redirect_user: false,
+                                wind_speed: Math.round(consolidated_weather[i].wind_speed * 10) / 10,
+                                wind_direction: Math.round(consolidated_weather[i].wind_direction * 10) / 10,
+                                air_pressure: Math.round(consolidated_weather[i].air_pressure * 10) / 10,
                                 humidity: consolidated_weather[i].humidity,
                                 dayOfTheWeek: this.globalUtilities.getDateDay(consolidated_weather[i].applicable_date)
                             }
                         );
                         this.weatherData = this.tempWeatherData;
-                        console.log(this.weatherData);
                         this.globalUtilities.hideShowLoader(false); // hide/show loader
                     // }
                 }

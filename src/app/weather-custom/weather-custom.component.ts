@@ -7,20 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class WeatherCustomComponent {
 
-    @Input() weatherDataObject = [
-        {
-            city: '',
-            the_temp: '',
-            min_temp: '',
-            max_temp: '',
-            weather_state_abbr: '',
-            woeid: ''
-        }
-    ];
+    @Input() weatherDataObject = [];
+    @Input() redirect_user:boolean;
+    weather_url = '/weather';
 
     constructor() {
-
-      // this.weatherDataObject.city
 
     }
 

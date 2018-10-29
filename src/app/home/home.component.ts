@@ -71,6 +71,7 @@ export class HomeComponent implements OnInit {
                                 min_temp: Math.round(consolidated_weather[i].min_temp * 10) / 10,
                                 max_temp: Math.round(consolidated_weather[i].max_temp * 10) / 10,
                                 the_temp: Math.round(consolidated_weather[i].the_temp * 10) / 10,
+                                redirect_user: true
                             }
                         );
                         if(lastItem) {
